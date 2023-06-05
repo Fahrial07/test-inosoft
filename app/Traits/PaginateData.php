@@ -30,7 +30,7 @@ trait PaginateData
         $search = null,
         $withRelations = [],
         $filters = [],
-        $appends = [],
+        $appends = []
     ) {
         $query = $query->with($withRelations);
 
