@@ -222,4 +222,21 @@ class VehicleService
             return $result;
         }
     }
+
+    public function getStock($request)
+    {
+
+        $vehicleStock = $this->vehicleRepository->getStock();
+
+        $status = true;
+        $message = 'Data successfully retrieved !';
+
+        $result = (object) [
+            'status' => $status,
+            'message' => $message,
+            'data' => $vehicleStock
+        ];
+
+        return $result;
+    }
 }

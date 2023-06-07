@@ -62,6 +62,9 @@ Route::group(
 
         Route::post('destroy', [VehicleController::class, 'destroy'])->middleware('jwt.verify')
             ->name('destroy');
+
+        Route::get('get-stock', [VehicleController::class, 'getStock'])->middleware('jwt.verify')
+            ->name('get-stock');
     }
 );
 

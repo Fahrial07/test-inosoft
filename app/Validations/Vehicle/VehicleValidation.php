@@ -116,5 +116,19 @@ class VehicleValidation
         return $result;
     }
 
+    public function getStock($request)
+    {
+        $result = [];
+        $result['status'] = false;
+
+        // Validation success
+        $result['status'] = true;
+        $result['message'] = 'Validation successfully !';
+
+        $result = (object) $result;
+
+        return $result;
+    }
+
 
 }

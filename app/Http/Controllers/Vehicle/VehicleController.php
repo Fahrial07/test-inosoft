@@ -135,5 +135,24 @@ class VehicleController extends Controller
         return $this->sendResponse($result);
     }
 
+     /**
+     * Get Stock
+     * 
+     * @param  \App\Http\Requests\Request  $request
+     * @return \Illuminate\Http\Response
+    */
+    public function getStock(Request $request)
+    {
+         $validation = $this->vehicleValidation->getStock($request);
+
+        if (!$validation->status) {
+            return $this->sendResponse($validation);
+        }
+
+        $result = $this->vehicleService->getStock($request);
+
+        return $this->sendResponse($result);
+    }
+
     
 }

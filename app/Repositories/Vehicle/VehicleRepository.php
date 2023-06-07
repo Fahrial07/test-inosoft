@@ -44,4 +44,12 @@ class VehicleRepository
         return Vehicle::where('_id', $id)->delete();
     }
 
+    public function getStock()
+    {
+        return Vehicle::withCount([
+            'car',
+            'motorcycle'
+        ])->get();
+    }
+
 }
