@@ -62,7 +62,7 @@ class MotorcycleValidation
 
         // Check required parameter is exist
         $validate = [
-            'motorcycle_id' => ['required', 'exists:motorcycle,_id']
+            'motorcycle_id' => ['required', 'exists:motorcycles,_id']
         ];
 
         $request->validate($validate);
@@ -79,7 +79,7 @@ class MotorcycleValidation
     public function update($request)
     {
         $validate = [
-            'motorcycle_id' => ['required', 'exists:motorcycle,_id'],
+            'motorcycle_id' => ['required', 'exists:motorcycles,_id'],
             'vehicle_id' => ['required', 'exists:vehicles,_id'],
             'machine' => ['required'],
             'suspension' => ['required'],
@@ -103,7 +103,7 @@ class MotorcycleValidation
         $result['status'] = false;
 
         $validate = [
-            'motorcycle_id' => ['required', 'exists:motorcycle,_id']
+            'motorcycle_id' => ['required', 'exists:motorcycles,_id']
         ];
 
         $request->validate($validate);
