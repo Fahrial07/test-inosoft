@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Validations;
+namespace App\Validations\Vehicle;
 
 class VehicleValidation
 {
@@ -15,8 +15,8 @@ class VehicleValidation
         $result = [];
         $result['status'] = false;
         $validate = [
-            'page_number' => ['sometimes', 'numeric'],
-            'amount_of_data' => ['somestimes', 'numeric']
+            'page_number' => ['nullable', 'numeric'],
+            'amount_of_data' => ['nullable', 'numeric']
         ];
 
         $request->validate($validate);
@@ -40,7 +40,81 @@ class VehicleValidation
         $result['status'] = false;
 
         $validate = [
-
+            'output_year' => ['required'],
+            'color' => ['required'],
+            'price' => ['required']
         ];
+
+        $request->validate($validate);
+
+        // Validation success
+        $result['status'] = true;
+        $result['message'] = 'Validation successfully';
+
+        $result = (object) $result;
+        return $result;
     }
+
+    public function show($request)
+    {
+        $result = [];
+        $result['status'] = true;
+
+        // Check required parameter is exist
+        $validate = [
+            'vehicle_id' => ['required', 'exists:vehicles,_id']
+        ];
+
+        $request->validate($validate);
+
+        // Validation success
+        $result['status'] = true;
+        $result['message'] = 'Validation successfully !';
+
+        $result = (object) $result;
+
+        return $result;
+    }
+
+    public function update($request)
+    {
+        $validate = [
+            'vehicle_id' => ['required', 'exists:vehicles,_id'],
+            'output_year' => ['required'],
+            'color' => ['required'],
+            'price' => ['required']
+        ];
+
+        $request->validate($validate);
+
+        // Validation success
+        $result['status'] = true;
+        $result['message'] = 'Validation successfully !';
+
+        $result = (object) $result;
+
+        return $result;
+    }
+
+    public function destroy($request)
+    {
+        $result = [];
+        $result['status'] = false;
+
+        $validate = [
+            'vehicle_id' => ['required', 'exists:vehicles,_id']
+        ];
+
+        $request->validate($validate);
+
+        //Validate success
+        $result['status'] = true;
+        $result['message'] = 'Validation successfuly';
+
+        $result = (object) $result;
+
+        return $result;
+    }
+
+
 }

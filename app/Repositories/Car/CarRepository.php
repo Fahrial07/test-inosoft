@@ -7,9 +7,14 @@ use App\Models\Car;
 class CarRepository
 {
 
-    public function getCar()
+    public function getAll()
     {
         return Car::orderBy('created_at', 'desc')->get();
+    }
+
+    public function getWithPaginate($pageNumber, $amountOfData)
+    {
+        return Car::getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
     }
 
     public function create($data)
@@ -17,7 +22,7 @@ class CarRepository
         return Car::create($data);
     }
 
-    public function getCarById($id)
+    public function getById($id)
     {
         return Car::firstWhere('_id', $id);
     }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Laravel\Sanctum\HasApiTokens;
+
+use App\Traits\PaginateData;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -11,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, PaginateData;
 
     protected $connection = 'mongodb';
 

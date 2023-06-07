@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVichilesTable extends Migration
+class CreateMotorcyclesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,17 @@ class CreateVichilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vichiles', function (Blueprint $table) {
+        Schema::create('motorcycles', function (Blueprint $table) {
             $table->id();
-            $table->year('output_year');
-            $table->string('color');
-            $table->decimal('price');
+
+            $table->foreignId('vehicle_id')
+                ->constrained('vehicles')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->string('machine', 100);
+            $table->string('suspension', 100);
+            $table->string('transmisson', 100);
+
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +36,6 @@ class CreateVichilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vichiles');
+        Schema::dropIfExists('motorcycles');
     }
 }
