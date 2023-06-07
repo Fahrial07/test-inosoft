@@ -12,14 +12,14 @@ class CarController extends Controller
     /**
      * Validation instance.
      *
-     * @var \App\Validations\Cae\CarValidation
+     * @var \App\Validations\Car\CarValidation
      */
     protected $carValidation;
 
     /**
      * Service instance.
      *
-     * @var \App\Services\Cae\CarService
+     * @var \App\Services\Car\CarService
      */
     protected $carService;
 

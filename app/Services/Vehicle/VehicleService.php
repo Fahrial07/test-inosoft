@@ -4,8 +4,6 @@ namespace App\Services\Vehicle;
 
 use App\Repositories\Vehicle\VehicleRepository;
 
-
-
 class VehicleService
 {
 

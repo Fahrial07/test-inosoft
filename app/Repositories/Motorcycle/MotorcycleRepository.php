@@ -14,7 +14,7 @@ class MotorcycleRepository
 
     public function getWithPaginate($pageNumber, $amountOfData)
     {
-        return Motorcycle::getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
+        return Motorcycle::with('vehicle')->getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
     }
 
     public function create($data)
@@ -24,7 +24,7 @@ class MotorcycleRepository
 
     public function getById($id)
     {
-        return Motorcycle::firstWhere('_id', $id);
+        return Motorcycle::with('vehicle')->where('_id', $id)->first();
     }
 
     public function update($id, $data)

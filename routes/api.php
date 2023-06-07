@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Car\CarController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Vehicle\VehicleController;
+use App\Http\Controllers\Motorcycle\MotorcycleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,34 @@ Route::group(
             ->name('update');
 
         Route::post('destroy', [CarController::class, 'destroy'])
+            ->name('destroy');
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Motorcycle
+|--------------------------------------------------------------------------
+*/
+Route::group(
+    [
+        'as' => 'api.motorcycle.',
+        'prefix' => 'motorcycle',
+    ],
+    function () {
+        Route::get('', [MotorcycleController::class, 'index'])
+            ->name('index');
+
+        Route::post('store', [MotorcycleController::class, 'store'])
+            ->name('store');
+
+        Route::get('show', [MotorcycleController::class, 'show'])
+            ->name('show');
+
+        Route::post('update', [MotorcycleController::class, 'update'])
+            ->name('update');
+
+        Route::post('destroy', [MotorcycleController::class, 'destroy'])
             ->name('destroy');
     }
 );

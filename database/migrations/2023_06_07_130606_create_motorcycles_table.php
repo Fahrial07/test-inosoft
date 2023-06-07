@@ -22,7 +22,7 @@ class CreateMotorcyclesTable extends Migration
                 ->cascadeOnDelete();
             $table->string('machine', 100);
             $table->string('suspension', 100);
-            $table->string('transmisson', 100);
+            $table->string('transmission', 100);
 
             $table->softDeletes();
             $table->timestamps();

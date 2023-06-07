@@ -119,6 +119,4 @@ class CarValidation
         return $result;
     }
 
-
-
 }
