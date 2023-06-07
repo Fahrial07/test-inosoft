@@ -48,19 +48,19 @@ Route::group(
         'prefix' => 'vehicle',
     ],
     function () {
-        Route::get('', [VehicleController::class, 'index'])
+        Route::get('', [VehicleController::class, 'index'])->middleware('jwt.verify')
             ->name('index');
 
-        Route::post('store', [VehicleController::class, 'store'])
+        Route::post('store', [VehicleController::class, 'store'])->middleware('jwt.verify')
             ->name('store');
 
-        Route::get('show', [VehicleController::class, 'show'])
+        Route::get('show', [VehicleController::class, 'show'])->middleware('jwt.verify')
             ->name('show');
 
-        Route::post('update', [VehicleController::class, 'update'])
+        Route::post('update', [VehicleController::class, 'update'])->middleware('jwt.verify')
             ->name('update');
 
-        Route::post('destroy', [VehicleController::class, 'destroy'])
+        Route::post('destroy', [VehicleController::class, 'destroy'])->middleware('jwt.verify')
             ->name('destroy');
     }
 );
@@ -76,19 +76,19 @@ Route::group(
         'prefix' => 'car',
     ],
     function () {
-        Route::get('', [CarController::class, 'index'])
+        Route::get('', [CarController::class, 'index'])->middleware('jwt.verify')
             ->name('index');
 
-        Route::post('store', [CarController::class, 'store'])
+        Route::post('store', [CarController::class, 'store'])->middleware('jwt.verify')
             ->name('store');
 
-        Route::get('show', [CarController::class, 'show'])
+        Route::get('show', [CarController::class, 'show'])->middleware('jwt.verify')
             ->name('show');
 
-        Route::post('update', [CarController::class, 'update'])
+        Route::post('update', [CarController::class, 'update'])->middleware('jwt.verify')
             ->name('update');
 
-        Route::post('destroy', [CarController::class, 'destroy'])
+        Route::post('destroy', [CarController::class, 'destroy'])->middleware('jwt.verify')
             ->name('destroy');
     }
 );
@@ -104,19 +104,19 @@ Route::group(
         'prefix' => 'motorcycle',
     ],
     function () {
-        Route::get('', [MotorcycleController::class, 'index'])
+        Route::get('', [MotorcycleController::class, 'index'])->middleware('jwt.verify')
             ->name('index');
 
-        Route::post('store', [MotorcycleController::class, 'store'])
+        Route::post('store', [MotorcycleController::class, 'store'])->middleware('jwt.verify')
             ->name('store');
 
-        Route::get('show', [MotorcycleController::class, 'show'])
+        Route::get('show', [MotorcycleController::class, 'show'])->middleware('jwt.verify')
             ->name('show');
 
-        Route::post('update', [MotorcycleController::class, 'update'])
+        Route::post('update', [MotorcycleController::class, 'update'])->middleware('jwt.verify')
             ->name('update');
 
-        Route::post('destroy', [MotorcycleController::class, 'destroy'])
+        Route::post('destroy', [MotorcycleController::class, 'destroy'])->middleware('jwt.verify')
             ->name('destroy');
     }
 );
