@@ -14,7 +14,14 @@ class VehicleRepository
 
     public function getWithPaginate($pageNumber, $amountOfData)
     {
-        return Vehicle::getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
+        return Vehicle::with([
+            'car' => function ($query) {
+                $query->without('vehicle');
+            },
+            'motorcycle' => function ($query){
+                $query->without('vehicle');
+            }
+        ])->getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
     }
 
     public function create($data)

@@ -75,9 +75,10 @@ class MotorcycleService
     {
         try {
             $data = [
-                'output_year' => $request->output_year,
-                'color' => $request->color,
-                'price' => $request->price
+                'vehicle_id' => $request->vehicle_id,
+                'machine' => $request->machine,
+                'suspension' => $request->suspension,
+                'transmission' => $request->transmission
             ];
 
             $vehicle = $this->MotorcycleRepository->create($data);
@@ -118,7 +119,7 @@ class MotorcycleService
     public function show($request)
     {
         try {
-            $vehicle = $this->MotorcycleRepository->getById($request->vehicle_id);
+            $vehicle = $this->MotorcycleRepository->getById($request->motorcycle_id);
 
             $status = true;
             $message = 'Data retrieved successfully !';
@@ -156,15 +157,16 @@ class MotorcycleService
     {
         try {
             $data = [
+                'motorcycle_id' => $request->motorcycle_id,
                 'vehicle_id' => $request->vehicle_id,
-                'output_year' => $request->output_year,
-                'color' => $request->color,
-                'price' => $request->price
+                'machine' => $request->machine,
+                'suspension' => $request->suspension,
+                'transmission' => $request->transmission
             ];
 
-            $this->MotorcycleRepository->update($request->vehicle_id, $data);
+            $this->MotorcycleRepository->update($request->motorcycle_id, $data);
 
-            $vehicle = $this->MotorcycleRepository->getById($request->vehicle_id);
+            $vehicle = $this->MotorcycleRepository->getById($request->motorcycle_id);
 
             $status = true;
             $message = 'Data updated successfully !';
@@ -196,7 +198,7 @@ class MotorcycleService
     {
         try {
 
-            $this->MotorcycleRepository->destroy($request->vehicle_id);
+            $this->MotorcycleRepository->destroy($request->motorcycle_id);
 
             $status = true;
             $message = 'Data deleted successfully !';
