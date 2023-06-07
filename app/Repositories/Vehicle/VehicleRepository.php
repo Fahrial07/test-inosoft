@@ -46,9 +46,13 @@ class VehicleRepository
 
     public function getStock()
     {
-        return Vehicle::withCount([
-            'car',
-            'motorcycle'
+        return Vehicle::with([
+            'car' => function ($query) {
+                $query->without('vehicle');
+            },
+            'motorcycle' => function ($query) {
+                $query->without('vehicle');
+            }
         ])->get();
     }
 
