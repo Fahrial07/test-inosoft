@@ -19,11 +19,11 @@ class Vehicle extends Model
 
     public function motorcycle()
     {
-        return $this->hasMany(Motorcycle::class, 'vichile_id', '_id');
+        return $this->hasMany(Motorcycle::class, 'vehicle_id', '_id');
     }
 
     public function car()
     {
-        return $this->hasMany(Car::class, 'vichile_id', '_id');
+        return $this->hasMany(Car::class, 'vehicle_id', '_id');
     }
 }

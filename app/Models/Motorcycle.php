@@ -19,6 +19,6 @@ class Motorcycle extends Model
 
     public function vehicle()
     {
-        return $this->belongsTo(Vehicle::class, 'vehicle_id', '_id')->withTrahed();
+        return $this->belongsTo(Vehicle::class, 'vehicle_id', '_id');
     }
 }

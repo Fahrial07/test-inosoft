@@ -17,8 +17,10 @@ class Car extends Model
 
     protected $guarded = ['_id'];
 
+    protected $with = ['vehicle'];
+
     public function vehicle()
     {
-        return $this->belongsTo(Vehicle::class, 'vehicle_id', '_id')->withTrahed();
+        return $this->belongsTo(Vehicle::class, 'vehicle_id', '_id');
     }
 }

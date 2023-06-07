@@ -14,7 +14,7 @@ class CarRepository
 
     public function getWithPaginate($pageNumber, $amountOfData)
     {
-        return Car::getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
+        return Car::with('vehicle')->getPaginatedData(true, $pageNumber, $amountOfData, '_id', 'desc');
     }
 
     public function create($data)
@@ -24,7 +24,7 @@ class CarRepository
 
     public function getById($id)
     {
-        return Car::firstWhere('_id', $id);
+        return Car::with('vehicle')->where('_id', $id)->first();
     }
 
     public function update($id, $data)
